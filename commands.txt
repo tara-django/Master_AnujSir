@@ -1,0 +1,50 @@
+For first time in new PC:
+
+pip install pipenv
+
+For Every Project:
+
+creating virtual environment:
+
+pipenv --python 3.7
+
+Install Django in virtual environment:
+
+pipenv install django
+
+To active virtual env:
+
+pipenv shell
+
+Start django proect:
+
+django-admin startproject news_portal . 
+("." is used for current directory)
+
+#To create a app
+python manage.py startapp app_name
+
+Migration related Commands
+
+python manage.py makemigrations # if new models is created or have changes in existing models
+python manage.py migrate # to migrate model in physical database
+
+To see migrated sql queries
+python manage.py sqlmigrate app_name prefix_of_file_name
+example:
+python manage.py sqlmigrate auth 0001
+
+To create Super user:
+python manage.py createsuperuser
+
+GIT Commands
+
+1. git status # to see changes
+2. git diff # to compare old and new codes
+3. git add . # to track newly created and modifided file and folders. "." means all
+4. git commit -m "Your commit message" # -m means message flag
+5. git commit -am "Your commit message" # -am track modified files and add message
+6. git push origin master # push my current branch in remote master branch
+7. git branch # list all branches
+8. git checkout branch_name # checkout to branch_name
+9. git checkout -b branch_name # create new branch named branch_name and checkout to branch_name

@@ -1,0 +1,56 @@
+step 1:
+
+1. Create account in mailtrap.io and click in demo_inbox
+2. See in itegration section and select Django.
+3. Copy that configuration and paste it in setting.py
+
+Step 2 [GET user registration form]:
+
+1. Create form for user registration,
+    For this create forms.py file inside account folder (not of templetes)
+2. Create view for user registration and define get method.
+    Use previous form you created in forms.py [refer class code]
+3. Put link for signup in partials/header.html templete
+4. Create urls.py in accounts and register it in project/urls.py [refer class code]
+5. You should able to get form in your browser
+
+Note: create required templetes that you have rendered from views.py
+
+Step 3 [Handle post request]:
+
+1. Do folloing imports:
+    i.      from django.utils.encoding import force_bytes, force_text
+    ii.     from django.utils.http import urlsafe_base64_decode, urlsafe_base64_encode
+    iii.    from django.contrib.sites.shortcuts import get_current_site
+    iv.     from django.template.loader import render_to_string
+    v.      from django.core.mail import EmailMessage
+
+    i) force_bytes and force_text:
+        force_bytes: convert string to byte 
+        force_text: convert byte to string
+    ii) urlsafe_base64_decode and urlsafe_base64_encode:
+        urlsafe_base64_encode: since force_bytes object are not transferable or portable in url
+                                we need to encode it in base64 [for detail: google for base64 algorithm]
+        urlsafe_base64_decode: It is user to decode previously encoded object
+    iii)get_current_site: Takes request as argument and returns request information.
+        We used this in our code to get domain of server [see in side dict of message]
+
+    iv) render_to_string: It is same like render() method 
+        with the difference render_to_string don't need request. Just pass template name and dict [refer class code]
+    v) EmailMessage: Used to send email. 
+                    arguments: subject, body, to= [list of emails]
+2. While saving user form make sure that user.is_active = False
+    [refer class code]
+
+3. Create token which we will send in email.
+    For this, create tokens.py [refer class code]
+
+Step 3 [Handle activation request]:
+
+1. Create functional view named activate
+    i. get uid in text: force_text(urlsafe_base64_decode(uidb64)) [refer class code]
+    ii.update user.is_activate = True
+
+
+    
+    

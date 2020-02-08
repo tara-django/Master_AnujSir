@@ -1,0 +1,22 @@
+{% extends "partials/layout.html" %}
+{% load crispy_forms_tags %}
+
+
+{% block header %}
+  {% include "partials/header.html" %}
+{% endblock header %}
+
+{% block trending_news %}
+<p>You are logged out successfully. <a href="{% url 'login' %}">Login</a> again. <p>
+
+{% endblock trending_news %}
+
+{% block footer %}
+{% include "partials/footer.html" %}
+{% endblock footer %}
+    
+
+{% block script %}
+{% include "partials/script.html" %}
+{% endblock script %}
+

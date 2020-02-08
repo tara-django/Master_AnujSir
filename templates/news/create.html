@@ -1,0 +1,19 @@
+{% extends "partials/layout.html" %} 
+{% load crispy_forms_tags %}
+{% block header %} 
+{% include "partials/header.html" %} 
+{% endblock header %} 
+{% block trending_news %}
+<p>Login</p>
+<p></p>
+<form method="post" enctype="multipart/form-data">
+  {% csrf_token %} {{ form|crispy }}
+  <button type="submit">Create</button>
+</form>
+{% endblock trending_news %} 
+{% block footer %} 
+{% include "partials/footer.html" %} 
+{% endblock footer %} 
+{% block script %} 
+{% include "partials/script.html" %} 
+{% endblock script %}
